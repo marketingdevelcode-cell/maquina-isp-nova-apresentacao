@@ -2536,6 +2536,27 @@
                         </div>
                     </div>
 
+                    <!-- Gauge 4: Custo Operacional (-50%) -->
+                    <div class="info-item">
+                        <div style="position: relative; width: 280px; height: 280px;">
+                            <svg width="280" height="280" viewBox="0 0 280 280" style="transform: rotate(-90deg);">
+                                <circle cx="140" cy="140" r="125" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="14"></circle>
+                                <circle id="circle-benefit-4" cx="140" cy="140" r="125" fill="none" stroke="#00ff88"
+                                    stroke-width="14" stroke-dasharray="785" stroke-dashoffset="785" stroke-linecap="round"
+                                    style="filter: drop-shadow(0 0 12px rgba(0, 255, 136, 0.45));"></circle>
+                            </svg>
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; text-align: center;">
+                                <div class="counter-num" style="color: #ffffff; font-size: 52px; line-height: 1.1; margin-bottom: 10px; font-family: var(--font-syncopate); font-weight: 700; letter-spacing: -0.02em;">
+                                    -<span id="benefit-4">0</span>%
+                                </div>
+                                <p style="font-family: var(--font-body); font-size: 16px; line-height: 1.35; color: rgba(255, 255, 255, 0.9); font-weight: 400; margin: 0;">
+                                    de Custo Operacional
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <!-- Gauge 2: Inadimplência (-30%) -->
                     <div class="info-item">
                         <div style="position: relative; width: 280px; height: 280px;">
@@ -2571,26 +2592,6 @@
                                 </div>
                                 <p style="font-family: var(--font-body); font-size: 16px; line-height: 1.35; color: rgba(255, 255, 255, 0.9); font-weight: 400; margin: 0;">
                                     de Churn
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Gauge 4: Custo Operacional (-50%) -->
-                    <div class="info-item">
-                        <div style="position: relative; width: 280px; height: 280px;">
-                            <svg width="280" height="280" viewBox="0 0 280 280" style="transform: rotate(-90deg);">
-                                <circle cx="140" cy="140" r="125" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="14"></circle>
-                                <circle id="circle-benefit-4" cx="140" cy="140" r="125" fill="none" stroke="#00ff88"
-                                    stroke-width="14" stroke-dasharray="785" stroke-dashoffset="785" stroke-linecap="round"
-                                    style="filter: drop-shadow(0 0 12px rgba(0, 255, 136, 0.45));"></circle>
-                            </svg>
-                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; text-align: center;">
-                                <div class="counter-num" style="color: #ffffff; font-size: 52px; line-height: 1.1; margin-bottom: 10px; font-family: var(--font-syncopate); font-weight: 700; letter-spacing: -0.02em;">
-                                    -<span id="benefit-4">0</span>%
-                                </div>
-                                <p style="font-family: var(--font-body); font-size: 16px; line-height: 1.35; color: rgba(255, 255, 255, 0.9); font-weight: 400; margin: 0;">
-                                    de Custo Operacional
                                 </p>
                             </div>
                         </div>
@@ -2687,6 +2688,72 @@
                         <span class="circ-chip is-live"><span class="circ-live-dot"></span>No ar</span>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             SLIDE CALCULADORA — INVESTIMENTO E PLANOS
+             ========================================================================= -->
+        <section class="slide slide-dark" id="slide-calc" data-title="Calculadora">
+            <div class="grid-bg grid-bg-dark"></div>
+            <div class="noise-overlay"></div>
+            <div class="glow-point" style="top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.25;"></div>
+
+            <div class="slide-content-wrapper">
+                <div class="calc-container">
+                    <div class="title-reveal" style="margin-bottom: 10px;">
+                        <h2 style="font-family: var(--font-virtual); font-size: clamp(2rem, 3.8vw, 4rem); margin-bottom: 10px; line-height: 1.1; font-weight: normal; letter-spacing: 0.01em; text-transform: uppercase;">
+                            QUANTO CUSTA PARA<br>A SUA <span style="color: #FFD700; text-shadow: 0 0 40px rgba(255, 215, 0, 0.45);">OPERAÇÃO?</span>
+                        </h2>
+                        <p class="opacity-70" style="font-family: var(--font-body); font-size: 1.25rem; font-weight: 300;">
+                            Crescimento previsível atrelado ao ganho direto de eficiência e rentabilidade.
+                        </p>
+                    </div>
+
+                    <!-- Counter Group -->
+                    <div class="calc-input-group title-reveal">
+                        <button class="calc-btn" id="calc-minus" title="Diminuir"><i class="ph ph-minus"></i></button>
+                        <div class="input-box">
+                            <input type="number" id="calc-input" value="4999" step="500">
+                            <div class="input-label">Assinantes na Base</div>
+                        </div>
+                        <button class="calc-btn" id="calc-plus" title="Aumentar"><i class="ph ph-plus"></i></button>
+                    </div>
+
+                    <!-- Split Pricing Cards -->
+                    <div class="pricing-grid-v2" style="margin: 0 auto;">
+                        
+                        <!-- Monthly Licensing Card -->
+                        <div class="pricing-card-v2 highlight title-reveal">
+                            <span class="pricing-label">Licenciamento Mensal</span>
+                            <div class="pricing-value">
+                                <span class="old-price-v2" id="calc-old-price">R$ 2.653</span>
+                                <span id="calc-monthly" style="color: #FFD700; text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);">R$ 2.499</span>
+                            </div>
+                            <p class="pricing-subtext font-mono" id="calc-range-text" style="color: rgba(255,255,255,0.7); font-size: 13px; margin-bottom: 15px;">Faixa: 3.751 a 5.000 assinantes</p>
+                            <div class="badge-v2">CONDIÇÃO ESPECIAL FEIRA</div>
+                        </div>
+
+                        <!-- One-time Setup Card -->
+                        <div class="pricing-card-v2 title-reveal" style="transition-delay: 0.1s;">
+                            <div class="border-beam" style="border-radius: 28px; opacity: 0.25;"></div>
+                            <span class="pricing-label">Taxa de Implantação</span>
+                            <div class="pricing-value" id="calc-setup" style="color: white;">
+                                Sem Custo
+                            </div>
+                            <p class="pricing-subtext" style="color: rgba(255,255,255,0.7); font-size: 14px;">Onboarding + Integração Completa</p>
+                            <div style="margin-top: 25px; font-family: var(--font-syncopate); font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(0, 111, 255, 0.15); border: 1px solid rgba(0, 111, 255, 0.3); padding: 8px 20px; border-radius: 12px; display: inline-block;">
+                                Investimento Único
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p class="title-reveal opacity-50 font-mono" style="margin-top: 45px; font-size: 13px; line-height: 1.6;">
+                        * Valores de licenciamento mensal sem custos de LLM (IA) e WhatsApp (Meta).<br>
+                        Valores faturados integralmente em BRL.
+                    </p>
                 </div>
             </div>
         </section>
@@ -2795,72 +2862,6 @@
                     <div class="flow-card flow-card-subtle" style="left: 1030px; top: 167px; width: 170px; height: 76px; font-size: 12px; line-height: 1.35;">
                         FIM DO SERVIÇO<br>SEM CUSTOS
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =========================================================================
-             SLIDE CALCULADORA — INVESTIMENTO E PLANOS
-             ========================================================================= -->
-        <section class="slide slide-dark" id="slide-calc" data-title="Calculadora">
-            <div class="grid-bg grid-bg-dark"></div>
-            <div class="noise-overlay"></div>
-            <div class="glow-point" style="top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.25;"></div>
-
-            <div class="slide-content-wrapper">
-                <div class="calc-container">
-                    <div class="title-reveal" style="margin-bottom: 10px;">
-                        <h2 style="font-family: var(--font-virtual); font-size: clamp(2rem, 3.8vw, 4rem); margin-bottom: 10px; line-height: 1.1; font-weight: normal; letter-spacing: 0.01em; text-transform: uppercase;">
-                            QUANTO CUSTA PARA<br>A SUA <span style="color: #FFD700; text-shadow: 0 0 40px rgba(255, 215, 0, 0.45);">OPERAÇÃO?</span>
-                        </h2>
-                        <p class="opacity-70" style="font-family: var(--font-body); font-size: 1.25rem; font-weight: 300;">
-                            Crescimento previsível atrelado ao ganho direto de eficiência e rentabilidade.
-                        </p>
-                    </div>
-
-                    <!-- Counter Group -->
-                    <div class="calc-input-group title-reveal">
-                        <button class="calc-btn" id="calc-minus" title="Diminuir"><i class="ph ph-minus"></i></button>
-                        <div class="input-box">
-                            <input type="number" id="calc-input" value="4999" step="500">
-                            <div class="input-label">Assinantes na Base</div>
-                        </div>
-                        <button class="calc-btn" id="calc-plus" title="Aumentar"><i class="ph ph-plus"></i></button>
-                    </div>
-
-                    <!-- Split Pricing Cards -->
-                    <div class="pricing-grid-v2" style="margin: 0 auto;">
-                        
-                        <!-- Monthly Licensing Card -->
-                        <div class="pricing-card-v2 highlight title-reveal">
-                            <span class="pricing-label">Licenciamento Mensal</span>
-                            <div class="pricing-value">
-                                <span class="old-price-v2" id="calc-old-price">R$ 2.653</span>
-                                <span id="calc-monthly" style="color: #FFD700; text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);">R$ 2.499</span>
-                            </div>
-                            <p class="pricing-subtext font-mono" id="calc-range-text" style="color: rgba(255,255,255,0.7); font-size: 13px; margin-bottom: 15px;">Faixa: 3.751 a 5.000 assinantes</p>
-                            <div class="badge-v2">CONDIÇÃO ESPECIAL FEIRA</div>
-                        </div>
-
-                        <!-- One-time Setup Card -->
-                        <div class="pricing-card-v2 title-reveal" style="transition-delay: 0.1s;">
-                            <div class="border-beam" style="border-radius: 28px; opacity: 0.25;"></div>
-                            <span class="pricing-label">Taxa de Implantação</span>
-                            <div class="pricing-value" id="calc-setup" style="color: white;">
-                                Sem Custo
-                            </div>
-                            <p class="pricing-subtext" style="color: rgba(255,255,255,0.7); font-size: 14px;">Onboarding + Integração Completa</p>
-                            <div style="margin-top: 25px; font-family: var(--font-syncopate); font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(0, 111, 255, 0.15); border: 1px solid rgba(0, 111, 255, 0.3); padding: 8px 20px; border-radius: 12px; display: inline-block;">
-                                Investimento Único
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <p class="title-reveal opacity-50 font-mono" style="margin-top: 45px; font-size: 13px; line-height: 1.6;">
-                        * Valores de licenciamento mensal sem custos de LLM (IA) e WhatsApp (Meta).<br>
-                        Valores faturados integralmente em BRL.
-                    </p>
                 </div>
             </div>
         </section>
