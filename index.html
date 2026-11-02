@@ -1108,82 +1108,13 @@
         }
 
         /* =========================================================================
-           SLIDE 6: EQUAÇÃO DO ROI
-           ========================================================================= */
-        .roi-equation-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            width: 100%;
-            max-width: 1200px;
-            margin-top: 20px;
-        }
-
-        .roi-side {
-            background: var(--card-bg-dark);
-            border: 1px solid var(--card-border-subtle);
-            border-radius: 24px;
-            padding: 40px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .roi-people-grid {
-            display: flex;
-            gap: 15px;
-            margin: 25px 0;
-        }
-
-        .roi-icon {
-            font-size: 34px;
-            transition: all 0.3s ease;
-        }
-
-        .roi-icon.current {
-            color: rgba(255, 255, 255, 0.35);
-        }
-
-        .roi-icon.blue-glow {
-            color: var(--primary);
-            filter: drop-shadow(0 0 12px rgba(0, 111, 255, 0.8));
-        }
-
-        .roi-divider {
-            width: 80%;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 15px 0;
-        }
-
-        .roi-divider.blue {
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-        }
-
-        .capacity-box {
-            background: rgba(0, 111, 255, 0.1);
-            border: 1px solid rgba(0, 111, 255, 0.3);
-            color: var(--accent);
-            padding: 10px 24px;
-            border-radius: 100px;
-            font-family: var(--font-syncopate);
-            font-size: 0.72rem;
-            letter-spacing: 0.1em;
-        }
-
-        /* =========================================================================
            SLIDE 7: IMPACTO NA OPERAÇÃO (GAUGES LANDING PAGE)
            ========================================================================= */
         .infographic-container {
             display: flex;
             justify-content: space-around;
             width: 100%;
-            max-width: 1250px;
+            max-width: 1560px;
             margin-top: 40px;
         }
 
@@ -1200,75 +1131,239 @@
         }
 
         /* =========================================================================
-           SLIDE 10: IMPLANTAÇÃO (4 ETAPAS)
+           SLIDE 10: IMPLANTAÇÃO — TIMELINE CIRCULAR
+           As 3 primeiras etapas são executadas por nós (arco azul + selo);
+           o Go Live fecha o ciclo com o foguete e o status "no ar".
            ========================================================================= */
-        .steps-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1300px;
+        .circ-stage {
             position: relative;
-            margin-top: 80px;
+            width: 1400px;
+            height: 764px;
+            margin: 10px auto 0;
+            flex-shrink: 0;
         }
 
-        .step-line {
+        .circ-svg {
             position: absolute;
-            top: 40px;
-            left: 60px;
-            right: 60px;
-            height: 3px;
-            background: rgba(0, 111, 255, 0.15);
-            z-index: 1;
+            inset: 0;
+            overflow: visible;
         }
 
-        .step-line-progress {
+        /* ---------- Núcleo central: a quebra de objeção ---------- */
+        .circ-core {
             position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            width: 0%;
-            box-shadow: 0 0 15px rgba(0, 111, 255, 0.6);
-        }
-
-        .step-item {
+            left: 700px;
+            top: 382px;
+            transform: translate(-50%, -50%);
+            width: 262px;
+            height: 262px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(0, 111, 255, 0.22);
+            box-shadow: 0 20px 50px rgba(0, 111, 255, 0.16), inset 0 0 40px rgba(0, 111, 255, 0.05);
+            backdrop-filter: blur(8px);
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            z-index: 2;
-            width: 260px;
-            opacity: 0.4;
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            padding: 0 26px;
+            z-index: 4;
         }
 
-        .step-item.active {
-            opacity: 1;
-            transform: translateY(-4px);
-        }
-
-        .step-num {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #ffffff;
-            border: 2px solid var(--primary);
+        .circ-core i {
+            font-size: 30px;
             color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .circ-core-eyebrow {
+            font-family: var(--font-syncopate);
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(0, 111, 255, 0.75);
+            margin-bottom: 8px;
+        }
+
+        .circ-core-title {
+            font-family: var(--font-virtual);
+            font-size: 27px;
+            line-height: 1.12;
+            color: var(--navy-dark);
+        }
+
+        .circ-core-title span {
+            color: var(--primary);
+        }
+
+        /* ---------- Nós da circunferência ---------- */
+        .circ-node {
+            position: absolute;
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background: #ffffff;
+            border: 2px solid rgba(0, 111, 255, 0.35);
+            color: rgba(0, 111, 255, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: var(--font-virtual);
             font-size: 28px;
             font-weight: 700;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 25px rgba(0, 111, 255, 0.2);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 24px rgba(8, 20, 42, 0.12);
+            transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+            z-index: 3;
         }
 
-        .step-item.active .step-num {
+        .circ-node.done {
             background: var(--primary);
+            border-color: var(--primary);
             color: #ffffff;
-            box-shadow: 0 12px 30px rgba(0, 111, 255, 0.45);
+            box-shadow: 0 14px 32px rgba(0, 111, 255, 0.45);
+        }
+
+        /* Nó do Go Live: verde, com foguete */
+        .circ-node.live {
+            font-size: 38px;
+        }
+
+        /* display:block porque transform não se aplica a elemento inline */
+        .circ-node i {
+            display: block;
+            line-height: 1;
+        }
+
+        .circ-node.live.done {
+            background: #00c46a;
+            border-color: #00c46a;
+            color: #ffffff;
+            box-shadow: 0 14px 38px rgba(0, 196, 106, 0.5);
+        }
+
+        /* Halo que pulsa quando entra no ar */
+        .circ-halo {
+            position: absolute;
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid #00c46a;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Rastro do foguete */
+        .circ-trail {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 56px;
+            height: 10px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, transparent, rgba(0, 196, 106, 0.85));
+            filter: blur(5px);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* ---------- Cartões de texto ---------- */
+        .circ-card {
+            position: absolute;
+            width: 420px;
+            opacity: 0;
+        }
+
+        .circ-card h3 {
+            font-family: var(--font-virtual);
+            font-size: 23px;
+            color: var(--navy-dark);
+            margin-bottom: 8px;
+        }
+
+        .circ-card p {
+            font-family: var(--font-body);
+            font-size: 15.5px;
+            line-height: 1.5;
+            color: #475569;
+        }
+
+        .circ-card.at-top {
+            left: 700px;
+            top: 18px;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .circ-card.at-bottom {
+            left: 700px;
+            top: 620px;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .circ-card.at-right {
+            left: 950px;
+            top: 382px;
+            transform: translateY(-50%);
+            text-align: left;
+            width: 440px;
+        }
+
+        .circ-card.at-left {
+            left: 450px;
+            top: 382px;
+            transform: translate(-100%, -50%);
+            text-align: right;
+            width: 440px;
+        }
+
+        /* ---------- Selo "feito por nós" ---------- */
+        .circ-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 11px;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-family: var(--font-syncopate);
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: rgba(0, 111, 255, 0.09);
+            border: 1px solid rgba(0, 111, 255, 0.28);
+        }
+
+        .circ-chip i {
+            font-size: 13px;
+        }
+
+        .circ-chip.is-live {
+            color: #00934f;
+            background: rgba(0, 196, 106, 0.1);
+            border-color: rgba(0, 196, 106, 0.4);
+        }
+
+        /* Ponto que pisca no selo "no ar" */
+        .circ-live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #00c46a;
+            box-shadow: 0 0 0 0 rgba(0, 196, 106, 0.7);
+            animation: circLivePulse 1.8s ease-out infinite;
+        }
+
+        @keyframes circLivePulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 196, 106, 0.7); }
+            70% { box-shadow: 0 0 0 9px rgba(0, 196, 106, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 196, 106, 0); }
         }
 
         /* =========================================================================
@@ -1617,6 +1712,7 @@
             gap: 8px;
         }
 
+        .lead-field.col-2 { grid-column: span 2; }
         .lead-field.col-3 { grid-column: span 3; }
         .lead-field.col-4 { grid-column: span 4; }
         .lead-field.col-5 { grid-column: span 5; }
@@ -1940,7 +2036,236 @@
             color: #ffd700;
         }
 
+        /* ---------- Etapas do cadastro + envio ao agente ---------- */
+        .lead-steps {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 26px;
+        }
+
+        .lead-step-dot {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-syncopate);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .lead-step-dot b {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .lead-step-dot.active { color: #ffffff; }
+
+        .lead-step-dot.active b {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 16px rgba(0, 111, 255, 0.55);
+        }
+
+        .lead-step-dot.done { color: rgba(255, 255, 255, 0.7); }
+
+        .lead-step-dot.done b {
+            background: rgba(0, 255, 136, 0.14);
+            border-color: #00ff88;
+            color: #00ff88;
+        }
+
+        .lead-step-line {
+            flex: 0 0 48px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lead-step-view { display: none; }
+        .lead-step-view.active { display: block; }
+
+        .lead-step-title {
+            font-family: var(--font-virtual);
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .lead-step-sub {
+            font-family: var(--font-body);
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 14px;
+            font-weight: 300;
+            margin-bottom: 22px;
+        }
+
+        .lead-consent {
+            grid-column: span 12;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 16px 18px;
+            border: 1px solid rgba(126, 160, 255, 0.22);
+            border-radius: 12px;
+            background: rgba(14, 24, 64, 0.55);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lead-consent input {
+            width: 22px;
+            height: 22px;
+            margin-top: 1px;
+            flex: none;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .lead-consent span {
+            font-family: var(--font-body);
+            font-size: 15px;
+            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .lead-consent small {
+            display: block;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 3px;
+        }
+
+        .lead-consent.invalid {
+            border-color: #ff4b4b;
+            box-shadow: 0 0 0 3px rgba(255, 75, 75, 0.15);
+        }
+
+        .lead-confirm {
+            text-align: center;
+            padding: 34px 10px 6px;
+        }
+
+        .lead-confirm .lead-confirm-label {
+            font-family: var(--font-body);
+            font-size: 13px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lead-confirm .lead-confirm-fone {
+            font-family: var(--font-mono);
+            font-size: 52px;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 10px 0 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .lead-confirm .lead-confirm-who {
+            font-family: var(--font-body);
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+
+        .lead-confirm .lead-confirm-who b { color: #ffffff; }
+
+        .lead-confirm .lead-form-actions {
+            justify-content: center;
+            border-top: none;
+            margin-top: 30px;
+        }
+
+        .lead-send-banner {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            border-radius: 12px;
+            margin-bottom: 22px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            line-height: 1.4;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            background: rgba(255, 215, 0, 0.08);
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .lead-send-banner.visible { display: flex; }
+        .lead-send-banner i { font-size: 22px; flex: none; color: #ffd700; }
+        .lead-send-banner.ok { border-color: rgba(0, 255, 136, 0.45); background: rgba(0, 255, 136, 0.08); }
+        .lead-send-banner.ok i { color: #00ff88; }
+        .lead-send-banner.err { border-color: rgba(255, 75, 75, 0.5); background: rgba(255, 75, 75, 0.09); }
+        .lead-send-banner.err i { color: #ff6b6b; }
+        .lead-send-banner.mute { border-color: rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.05); }
+        .lead-send-banner.mute i { color: rgba(255, 255, 255, 0.6); }
+
+        .lead-aviso {
+            display: none;
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            background: rgba(255, 215, 0, 0.08);
+            color: rgba(255, 255, 255, 0.85);
+            font-family: var(--font-body);
+            font-size: 13px;
+        }
+
+        .lead-aviso.visible { display: block; }
+
+        .envio-pill {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid;
+            white-space: nowrap;
+        }
+
+        .envio-pill.ok { color: #00ff88; border-color: rgba(0, 255, 136, 0.45); background: rgba(0, 255, 136, 0.1); }
+        .envio-pill.warn { color: #ffd700; border-color: rgba(255, 215, 0, 0.45); background: rgba(255, 215, 0, 0.1); }
+        .envio-pill.err { color: #ff6b6b; border-color: rgba(255, 75, 75, 0.5); background: rgba(255, 75, 75, 0.1); }
+        .envio-pill.mute { color: rgba(255, 255, 255, 0.6); border-color: rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.05); }
+
+        .lead-row-actions { display: flex; gap: 6px; }
+
+        .lead-row-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: rgba(255, 255, 255, 0.7);
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .lead-row-btn:hover {
+            background: rgba(0, 111, 255, 0.22);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
         @media (max-width: 900px) {
+            .lead-field.col-2,
             .lead-field.col-3,
             .lead-field.col-4,
             .lead-field.col-5,
@@ -2174,77 +2499,6 @@
         </section>
 
         <!-- =========================================================================
-             SLIDE 6 — EQUAÇÃO DO ROI (FAZER MAIS COM MENOS)
-             ========================================================================= -->
-        <section class="slide slide-dark" id="slide-6" data-title="Equação do ROI">
-            <div class="grid-bg grid-bg-dark"></div>
-            <div class="noise-overlay"></div>
-            <div class="glow-point" style="top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.2;"></div>
-
-            <div class="slide-content-wrapper">
-                <h1 class="title-reveal text-center" style="font-family: var(--font-virtual); margin-bottom: 15px; font-size: clamp(2rem, 3.2vw, 3.8rem); line-height: 1.1;">
-                    A Equação do ROI: <span style="color: var(--primary); text-shadow: 0 0 35px rgba(0, 111, 255, 0.5);">Fazer Mais com Menos</span>
-                </h1>
-                
-                <p class="title-reveal text-center opacity-80"
-                    style="font-family: var(--font-body); max-width: 900px; margin-bottom: 40px; font-size: 1.35rem; font-weight: 300;">
-                    Crescimento contínuo da sua base de assinantes sem precisar inchar o seu time operacional.
-                </p>
-
-                <div class="roi-equation-container title-reveal" style="align-items: flex-start;">
-                    
-                    <!-- Left Side -->
-                    <div class="roi-side">
-                        <h3 class="opacity-50 mb-20" style="font-family: var(--font-syncopate); font-size: 0.85rem; letter-spacing: 0.1em;">Cenário Tradicional</h3>
-                        <div class="roi-people-grid"
-                            style="flex-wrap: wrap; justify-content: center; max-width: 300px; gap: 15px;">
-                            <svg class="roi-icon current" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon current" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon current" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon current" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon current" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon current" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon current" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon current" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon current" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon current" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                        </div>
-                        <div class="roi-divider"></div>
-                        <p class="font-mono" style="font-size: 1.15rem;">Time Operacional Cheio = <span style="color: #FF4B4B; font-weight: 700;">Custo Alto</span></p>
-                    </div>
-
-                    <!-- Middle -->
-                    <div class="roi-equals" style="margin-top: 30px;">
-                        <div style="font-size: 40px; font-weight: 300; opacity: 0.5;">=</div>
-                        <i class="ph ph-arrow-bend-right-down" style="font-size: 22px; opacity: 0.4; margin-top: -10px;"></i>
-                    </div>
-
-                    <!-- Right Side -->
-                    <div class="roi-side" style="border-color: rgba(0, 111, 255, 0.45); box-shadow: 0 16px 45px rgba(0, 111, 255, 0.2);">
-                        <h3 class="mb-20" style="font-family: var(--font-syncopate); font-size: 0.85rem; letter-spacing: 0.1em; color: var(--accent);">Com Máquina.ISP</h3>
-                        <div class="roi-people-grid"
-                            style="flex-wrap: wrap; justify-content: center; max-width: 300px; gap: 15px;">
-                            <svg class="roi-icon blue-glow" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon blue-glow" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon blue-glow" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon blue-glow" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                            <svg class="roi-icon blue-glow" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true"><g fill="currentColor"><path d="M12 13C16.4183 13 20 15.0147 20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13Z"/><path d="M12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2Z"/></g></svg>
-                        </div>
-                        <div class="roi-divider blue"></div>
-                        <p class="font-mono" style="font-size: 1.15rem;">Time Otimizado = <span style="color: #4BFF8A; font-weight: 700;">Alta Rentabilidade</span></p>
-
-                        <div class="capacity-box mt-20">
-                            <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">
-                                CAPACIDADE DE ATENDIMENTO 24/7
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- =========================================================================
              SLIDE 5 — IMPACTO IMEDIATO NA OPERAÇÃO
              ========================================================================= -->
         <section class="slide slide-dark" id="slide-7" data-title="Impacto Imediato">
@@ -2322,6 +2576,26 @@
                         </div>
                     </div>
 
+                    <!-- Gauge 4: Custo Operacional (-50%) -->
+                    <div class="info-item">
+                        <div style="position: relative; width: 280px; height: 280px;">
+                            <svg width="280" height="280" viewBox="0 0 280 280" style="transform: rotate(-90deg);">
+                                <circle cx="140" cy="140" r="125" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="14"></circle>
+                                <circle id="circle-benefit-4" cx="140" cy="140" r="125" fill="none" stroke="#00ff88"
+                                    stroke-width="14" stroke-dasharray="785" stroke-dashoffset="785" stroke-linecap="round"
+                                    style="filter: drop-shadow(0 0 12px rgba(0, 255, 136, 0.45));"></circle>
+                            </svg>
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; text-align: center;">
+                                <div class="counter-num" style="color: #ffffff; font-size: 52px; line-height: 1.1; margin-bottom: 10px; font-family: var(--font-syncopate); font-weight: 700; letter-spacing: -0.02em;">
+                                    -<span id="benefit-4">0</span>%
+                                </div>
+                                <p style="font-family: var(--font-body); font-size: 16px; line-height: 1.35; color: rgba(255, 255, 255, 0.9); font-weight: 400; margin: 0;">
+                                    de Custo Operacional
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -2346,42 +2620,73 @@
                     Implantação guiada em <span style="color: var(--primary);">4 etapas</span>.
                 </h2>
                 
-                <div class="steps-container">
-                    <div class="step-line">
-                        <div class="step-line-progress" id="step-progress"></div>
+                <div class="circ-stage" id="circ-stage">
+
+                    <svg class="circ-svg" viewBox="0 0 1400 764" width="1400" height="764">
+                        <defs>
+                            <linearGradient id="circ-grad-live" x1="0" y1="1" x2="0" y2="0">
+                                <stop offset="0%" stop-color="#006fff" />
+                                <stop offset="100%" stop-color="#00c46a" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Trilho completo da circunferência -->
+                        <circle cx="700" cy="382" r="178" fill="none"
+                            stroke="rgba(0, 111, 255, 0.14)" stroke-width="8" />
+
+                        <!-- Arco 01 → 03: as etapas executadas por nós -->
+                        <path id="circ-arc-nos" d="M 700 204 A 178 178 0 0 1 700 560"
+                            fill="none" stroke="#006fff" stroke-width="8" stroke-linecap="round" />
+
+                        <!-- Arco 03 → 04: a subida para o ar -->
+                        <path id="circ-arc-live" d="M 700 560 A 178 178 0 0 1 522 382"
+                            fill="none" stroke="url(#circ-grad-live)" stroke-width="8" stroke-linecap="round" />
+                    </svg>
+
+                    <!-- Núcleo: a resposta à objeção "quanto trabalho isso me dá?" -->
+                    <div class="circ-core" id="circ-core">
+                        <i class="ph ph-users-three"></i>
+                        <span class="circ-core-eyebrow">Etapas 01 · 02 · 03</span>
+                        <div class="circ-core-title">Quem faz<br><span>somos nós</span></div>
                     </div>
 
-                    <div class="step-item title-reveal" id="step-1">
-                        <div class="step-num">01</div>
-                        <h3 style="font-family: var(--font-virtual); font-size: 22px; color: var(--navy-dark); margin-bottom: 10px;">Mapeamento</h3>
-                        <p style="font-family: var(--font-body); font-size: 16px; line-height: 1.5; color: #475569;">
-                            Reunião de onboarding, diagnóstico da operação e escopo de integrações.
-                        </p>
+                    <!-- Rastro e halo do foguete -->
+                    <div class="circ-trail" id="circ-trail" style="left: 522px; top: 456px;"></div>
+                    <div class="circ-halo" id="circ-halo" style="left: 522px; top: 382px;"></div>
+
+                    <!-- Nós sobre a circunferência -->
+                    <div class="circ-node" id="circ-node-1" style="left: 700px; top: 204px;">01</div>
+                    <div class="circ-node" id="circ-node-2" style="left: 878px; top: 382px;">02</div>
+                    <div class="circ-node" id="circ-node-3" style="left: 700px; top: 560px;">03</div>
+                    <div class="circ-node live" id="circ-node-4" style="left: 522px; top: 382px;">
+                        <i class="ph ph-rocket-launch"></i>
                     </div>
 
-                    <div class="step-item title-reveal" id="step-2">
-                        <div class="step-num">02</div>
-                        <h3 style="font-family: var(--font-virtual); font-size: 22px; color: var(--navy-dark); margin-bottom: 10px;">Integração</h3>
-                        <p style="font-family: var(--font-body); font-size: 16px; line-height: 1.5; color: #475569;">
-                            Conexão via API com os sistemas do provedor e configuração dos fluxos.
-                        </p>
+                    <!-- Cartões -->
+                    <div class="circ-card at-top" id="circ-card-1">
+                        <h3>Mapeamento</h3>
+                        <p>Reunião de onboarding, diagnóstico da operação e escopo de integrações.</p>
+                        <span class="circ-chip"><i class="ph ph-check-circle"></i>Nós fazemos</span>
                     </div>
 
-                    <div class="step-item title-reveal" id="step-3">
-                        <div class="step-num">03</div>
-                        <h3 style="font-family: var(--font-virtual); font-size: 22px; color: var(--navy-dark); margin-bottom: 10px;">Calibração</h3>
-                        <p style="font-family: var(--font-body); font-size: 16px; line-height: 1.5; color: #475569;">
-                            Treinamento com fluxos reais, ajuste de scripts e regras de negócio.
-                        </p>
+                    <div class="circ-card at-right" id="circ-card-2">
+                        <h3>Integração</h3>
+                        <p>Conexão via API com os sistemas do provedor e configuração dos fluxos.</p>
+                        <span class="circ-chip"><i class="ph ph-check-circle"></i>Nós fazemos</span>
                     </div>
 
-                    <div class="step-item title-reveal" id="step-4">
-                        <div class="step-num">04</div>
-                        <h3 style="font-family: var(--font-virtual); font-size: 22px; color: var(--navy-dark); margin-bottom: 10px;">Go Live</h3>
-                        <p style="font-family: var(--font-body); font-size: 16px; line-height: 1.5; color: #475569;">
-                            Agentes ativos, monitoramento e dashboard em tempo real.
-                        </p>
+                    <div class="circ-card at-bottom" id="circ-card-3">
+                        <h3>Calibração</h3>
+                        <p>Treinamento com fluxos reais, ajuste de scripts e regras de negócio.</p>
+                        <span class="circ-chip"><i class="ph ph-check-circle"></i>Nós fazemos</span>
                     </div>
+
+                    <div class="circ-card at-left" id="circ-card-4">
+                        <h3>Go Live</h3>
+                        <p>Agentes ativos, monitoramento e dashboard em tempo real.</p>
+                        <span class="circ-chip is-live"><span class="circ-live-dot"></span>No ar</span>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -2661,7 +2966,8 @@
             <div class="lead-header">
                 <div>
                     <h2>Captação de Leads</h2>
-                    <p>Os dados ficam salvos neste computador. Exporte a planilha ao final do evento.</p>
+                    <p>Os dados ficam salvos neste computador. Ao confirmar a etapa 1, o agente chama o lead no WhatsApp. Exporte a planilha ao final do evento.</p>
+                    <div class="lead-aviso" id="evento-aviso"></div>
                 </div>
                 <button class="btn-icon" id="btn-close-leads" title="Fechar (Esc)"><i class="ph ph-x"></i></button>
             </div>
@@ -2671,10 +2977,26 @@
                 <button class="lead-tab" id="tab-list" data-panel="panel-list">Leads capturados (<span id="tab-list-count">0</span>)</button>
             </div>
 
-            <!-- ---------- PAINEL: NOVO LEAD ---------- -->
+            <!-- ---------- PAINEL: NOVO LEAD (2 ETAPAS) ---------- -->
             <div class="lead-panel active" id="panel-form">
-                <form id="lead-form" autocomplete="off" novalidate>
+
+                <div class="lead-steps" aria-label="Etapas do cadastro">
+                    <div class="lead-step-dot active" id="dot-1"><b>1</b><span>Contato</span></div>
+                    <div class="lead-step-line"></div>
+                    <div class="lead-step-dot" id="dot-2"><b>2</b><span>Provedor</span></div>
+                </div>
+
+                <!-- ETAPA 1: dados primários. Ao confirmar, o agente chama o lead no WhatsApp -->
+                <form id="lead-form" class="lead-step-view active" autocomplete="off" novalidate>
                     <div class="lead-form-grid">
+
+                        <div class="lead-field col-12" data-field>
+                            <label for="lead-vendedor">Quem está captando este lead?<span class="req">*</span></label>
+                            <select id="lead-vendedor" name="vendedor" required>
+                                <option value="">Selecione...</option>
+                            </select>
+                            <span class="lead-hint">O agente avisa ao lead que foi esta pessoa quem pediu o contato.</span>
+                        </div>
 
                         <div class="lead-field col-6" data-field>
                             <label for="lead-nome">Nome do contato<span class="req">*</span></label>
@@ -2682,26 +3004,80 @@
                         </div>
 
                         <div class="lead-field col-6" data-field>
-                            <label for="lead-provedor">Provedor<span class="req">*</span></label>
-                            <input type="text" id="lead-provedor" name="provedor" placeholder="Ex: NetSul Telecom" required>
+                            <label for="lead-whatsapp">Celular (WhatsApp)<span class="req">*</span></label>
+                            <input type="tel" id="lead-whatsapp" name="whatsapp" placeholder="(00) 90000-0000" inputmode="numeric" required>
                         </div>
 
-                        <div class="lead-field col-6" data-field>
-                            <label for="lead-whatsapp">WhatsApp<span class="req">*</span></label>
-                            <input type="tel" id="lead-whatsapp" name="whatsapp" placeholder="(00) 00000-0000" inputmode="numeric" required>
-                        </div>
-
-                        <div class="lead-field col-6" data-field>
+                        <div class="lead-field col-12" data-field>
                             <label for="lead-email">E-mail</label>
                             <input type="email" id="lead-email" name="email" placeholder="contato@provedor.com.br">
                         </div>
 
-                        <div class="lead-field col-5" data-field>
+                        <label class="lead-consent" id="lead-consent-box" for="lead-consent">
+                            <input type="checkbox" id="lead-consent" name="consentimento">
+                            <span>O lead autorizou receber contato da Máquina.ISP por WhatsApp<span class="req" style="color: var(--accent); margin-left: 3px;">*</span>
+                                <small>Pergunte a ele antes de salvar. Sem a autorização, o agente não é acionado.</small>
+                            </span>
+                        </label>
+
+                    </div>
+
+                    <div class="lead-form-actions">
+                        <button type="submit" class="lead-btn lead-btn-primary">
+                            <i class="ph ph-whatsapp-logo"></i>
+                            <span>Chamar no WhatsApp</span>
+                        </button>
+                        <button type="reset" class="lead-btn">
+                            <i class="ph ph-eraser"></i>
+                            <span>Limpar campos</span>
+                        </button>
+                        <p class="lead-form-note">
+                            Salva neste computador e chama o lead em seguida.<br>
+                            <kbd>Ctrl</kbd> + <kbd>Enter</kbd> também avança.
+                        </p>
+                    </div>
+                </form>
+
+                <!-- CONFIRMAÇÃO DO NÚMERO: número digitado errado = mensagem pra um estranho -->
+                <div class="lead-confirm lead-step-view" id="lead-confirm">
+                    <p class="lead-confirm-label">Vou chamar no WhatsApp</p>
+                    <p class="lead-confirm-fone" id="confirm-fone">—</p>
+                    <p class="lead-confirm-who">
+                        <b id="confirm-nome">—</b> vai receber uma mensagem dizendo que foi o <b id="confirm-vendedor">—</b> quem pediu o contato.<br>
+                        Confira o número com o lead antes de confirmar.
+                    </p>
+                    <div class="lead-form-actions">
+                        <button type="button" class="lead-btn" id="btn-corrigir">
+                            <i class="ph ph-arrow-left"></i>
+                            <span>Corrigir</span>
+                        </button>
+                        <button type="button" class="lead-btn lead-btn-primary" id="btn-confirmar-envio">
+                            <i class="ph ph-paper-plane-tilt"></i>
+                            <span>Confirmar e chamar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 2: o resto do cadastro (opcional, pode ser feito depois pela lista) -->
+                <form id="lead-form-2" class="lead-step-view" autocomplete="off" novalidate>
+                    <h3 class="lead-step-title" id="etapa2-titulo">Dados do provedor</h3>
+                    <p class="lead-step-sub">Opcional. O agente já foi acionado; estes dados completam o cadastro e ele os usa na conversa.</p>
+
+                    <div class="lead-send-banner" id="lead-send-status"></div>
+
+                    <div class="lead-form-grid">
+
+                        <div class="lead-field col-6" data-field>
+                            <label for="lead-provedor">Provedor</label>
+                            <input type="text" id="lead-provedor" name="provedor" placeholder="Ex: NetSul Telecom">
+                        </div>
+
+                        <div class="lead-field col-4" data-field>
                             <label for="lead-cidade">Cidade</label>
                             <input type="text" id="lead-cidade" name="cidade" placeholder="Ex: Chapecó">
                         </div>
 
-                        <div class="lead-field col-3" data-field>
+                        <div class="lead-field col-2" data-field>
                             <label for="lead-uf">UF</label>
                             <select id="lead-uf" name="uf">
                                 <option value="">—</option>
@@ -2721,7 +3097,7 @@
                             <span class="lead-hint" id="lead-faixa-hint"></span>
                         </div>
 
-                        <div class="lead-field col-6" data-field>
+                        <div class="lead-field col-4" data-field>
                             <label for="lead-erp">Sistema / ERP que usa</label>
                             <select id="lead-erp" name="erp">
                                 <option value="">—</option>
@@ -2733,14 +3109,14 @@
                             </select>
                         </div>
 
-                        <div class="lead-field col-6" data-field id="field-erp-outro" style="display: none;">
+                        <div class="lead-field col-4" data-field id="field-erp-outro" style="display: none;">
                             <label for="lead-erp-outro">Qual sistema?</label>
                             <input type="text" id="lead-erp-outro" name="erpOutro" placeholder="Nome do sistema">
                         </div>
 
                         <div class="lead-field col-12" data-field>
                             <label for="lead-obs">Observações do vendedor</label>
-                            <textarea id="lead-obs" name="observacoes" placeholder="Dores citadas, objeções, próximo passo combinado..."></textarea>
+                            <textarea id="lead-obs" name="observacoes" placeholder="Dores citadas, objeções, próximo passo combinado... (só a equipe vê; o agente não usa)"></textarea>
                         </div>
 
                     </div>
@@ -2748,14 +3124,13 @@
                     <div class="lead-form-actions">
                         <button type="submit" class="lead-btn lead-btn-primary">
                             <i class="ph ph-floppy-disk"></i>
-                            <span>Salvar lead</span>
+                            <span>Salvar e novo lead</span>
                         </button>
-                        <button type="reset" class="lead-btn">
-                            <i class="ph ph-eraser"></i>
-                            <span>Limpar campos</span>
+                        <button type="button" class="lead-btn" id="btn-pular-etapa2">
+                            <i class="ph ph-arrow-right"></i>
+                            <span>Pular, novo lead</span>
                         </button>
                         <p class="lead-form-note">
-                            Salva neste computador, sem internet.<br>
                             <kbd>Ctrl</kbd> + <kbd>Enter</kbd> também salva.
                         </p>
                     </div>
@@ -2772,6 +3147,10 @@
                     <button class="lead-btn" id="btn-export-csv">
                         <i class="ph ph-file-csv"></i>
                         <span>Exportar CSV</span>
+                    </button>
+                    <button class="lead-btn" id="btn-reenviar-pendentes" title="Manda de novo ao agente os leads que falharam ou aguardam a liberação do envio">
+                        <i class="ph ph-arrow-clockwise"></i>
+                        <span>Reenviar pendentes</span>
                     </button>
                     <button class="lead-btn lead-btn-danger" id="btn-clear-leads">
                         <i class="ph ph-trash"></i>
@@ -2953,11 +3332,6 @@
                 initEcosystem(slide);
             }
 
-            // ROI Equation (Slide 6)
-            if (slideId === 'slide-6') {
-                initROI(slide);
-            }
-
             // Impact (Slide 7)
             if (slideId === 'slide-7') {
                 initBenefits(slide);
@@ -2975,25 +3349,6 @@
         }
 
         // --- Feature Initializers ---
-
-        function initROI(slide) {
-            if (typeof gsap === 'undefined') return;
-
-            const roiSides = slide.querySelectorAll('.roi-side');
-            const roiEquals = slide.querySelector('.roi-equals');
-            const capacityBox = slide.querySelector('.capacity-box');
-
-            if (!roiSides.length || !roiEquals || !capacityBox) return;
-
-            gsap.killTweensOf([roiSides, roiEquals, capacityBox]);
-            gsap.set([roiSides, roiEquals, capacityBox], { opacity: 0, y: 20 });
-
-            const tl = gsap.timeline({ delay: 0.2 });
-            tl.to(roiSides[0], { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" })
-                .to(roiEquals, { opacity: 0.5, y: 0, duration: 0.5 }, "-=0.4")
-                .to(roiSides[1], { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.4")
-                .to(capacityBox, { opacity: 1, y: 0, duration: 0.6, ease: "back.out(1.7)" }, "-=0.2");
-        }
 
         function initBenefits(slide) {
             if (typeof gsap === 'undefined') return;
@@ -3020,6 +3375,13 @@
                     if (el) el.textContent = Math.floor(b3.val);
                 }
             });
+            const b4 = { val: 0 };
+            gsap.to(b4, {
+                val: 50, duration: 2, ease: "power2.out", onUpdate: () => {
+                    const el = document.getElementById('benefit-4');
+                    if (el) el.textContent = Math.floor(b4.val);
+                }
+            });
 
             // SVG Gauges (785 = 2 * PI * 125)
             gsap.fromTo('#circle-benefit-1',
@@ -3033,6 +3395,10 @@
             gsap.fromTo('#circle-benefit-3',
                 { strokeDashoffset: 785 },
                 { strokeDashoffset: 785 - (785 * 0.20), duration: 2, ease: "power2.out", delay: 0.6 }
+            );
+            gsap.fromTo('#circle-benefit-4',
+                { strokeDashoffset: 785 },
+                { strokeDashoffset: 785 - (785 * 0.50), duration: 2, ease: "power2.out", delay: 0.8 }
             );
         }
 
@@ -3143,16 +3509,87 @@
         }
 
         function initImplementation(slide) {
-            const prog = document.getElementById('step-progress');
-            if (prog) {
-                gsap.set(prog, { width: 0 });
-                gsap.to(prog, { width: '100%', duration: 2, ease: "power1.inOut" });
+            const stage = slide.querySelector('#circ-stage');
+            if (!stage) return;
+
+            const core = stage.querySelector('#circ-core');
+            const halo = stage.querySelector('#circ-halo');
+            const trail = stage.querySelector('#circ-trail');
+            const arcNos = stage.querySelector('#circ-arc-nos');
+            const arcLive = stage.querySelector('#circ-arc-live');
+            const nodes = [1, 2, 3, 4].map(i => stage.querySelector('#circ-node-' + i));
+            const cards = [1, 2, 3, 4].map(i => stage.querySelector('#circ-card-' + i));
+            const rocket = stage.querySelector('#circ-node-4 i');
+
+            if (nodes.some(n => !n) || cards.some(c => !c)) return;
+
+            // Sem GSAP os cartões ficariam invisíveis (CSS inicia com opacity 0):
+            // mostra tudo direto no estado final.
+            if (typeof gsap === 'undefined') {
+                cards.forEach(c => { c.style.opacity = 1; });
+                nodes.forEach(n => n.classList.add('done'));
+                return;
             }
-            const steps = slide.querySelectorAll('.step-item');
-            steps.forEach((step, i) => {
-                step.classList.remove('active');
-                setTimeout(() => { if (slide.classList.contains('active')) step.classList.add('active'); }, 500 * i);
-            });
+
+            // Matar só os tweens não basta: a timeline anterior continuaria viva e seu
+            // callback final criaria mais uma animação infinita de halo/foguete a cada
+            // volta ao slide, acumulando e deixando o movimento trêmulo.
+            if (stage._timeline) stage._timeline.kill();
+            // Um alvo por vez: no GSAP 3.12.2, killTweensOf([array]) deixa vivo o tween
+            // infinito do halo/foguete (só killTweensOf(elemento) o remove de fato).
+            [core, halo, trail, arcNos, arcLive, rocket].concat(nodes, cards).forEach(el => gsap.killTweensOf(el));
+            nodes.forEach(n => n.classList.remove('done'));
+
+            // Os elementos são centrados por translate(-50%,-50%) no CSS. Ao assumir
+            // o transform, o GSAP precisa reproduzir isso via xPercent/yPercent.
+            gsap.set([core].concat(nodes), { xPercent: -50, yPercent: -50 });
+            gsap.set(halo, { xPercent: -50, yPercent: -50, scale: 1, opacity: 0 });
+            gsap.set(trail, { xPercent: -50, yPercent: -50, rotation: 90, scaleX: 0.3, opacity: 0 });
+            gsap.set(core, { opacity: 0, scale: 0.85 });
+            gsap.set(cards, { opacity: 0 });
+            gsap.set(rocket, { y: 0, scale: 1 });
+
+            const lenNos = arcNos.getTotalLength();
+            const lenLive = arcLive.getTotalLength();
+            gsap.set(arcNos, { strokeDasharray: lenNos, strokeDashoffset: lenNos });
+            gsap.set(arcLive, { strokeDasharray: lenLive, strokeDashoffset: lenLive });
+
+            const acender = i => nodes[i].classList.add('done');
+
+            const tl = gsap.timeline({ delay: 0.3 });
+            stage._timeline = tl;
+
+            // Núcleo primeiro: a mensagem "quem faz somos nós" abre o slide
+            tl.to(core, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.6)' })
+                .add(() => acender(0), '-=0.25')
+                .to(cards[0], { opacity: 1, duration: 0.45 }, '<')
+
+                // Arco azul percorrendo as três etapas executadas por nós
+                .to(arcNos, { strokeDashoffset: 0, duration: 1.8, ease: 'none' }, '>-=0.1')
+                .add(() => acender(1), '<+=0.9')
+                .to(cards[1], { opacity: 1, duration: 0.45 }, '<')
+                .add(() => acender(2), '<+=0.9')
+                .to(cards[2], { opacity: 1, duration: 0.45 }, '<')
+
+                // Subida para o ar
+                .to(arcLive, { strokeDashoffset: 0, duration: 0.9, ease: 'power1.inOut' }, '>')
+                .add(() => acender(3), '>-=0.1')
+
+                // Decolagem do foguete
+                .to(rocket, { y: -9, scale: 1.18, duration: 0.28, ease: 'power2.out' }, '<')
+                .to(trail, { opacity: 1, scaleX: 1, duration: 0.28 }, '<')
+                .to(cards[3], { opacity: 1, duration: 0.45 }, '<')
+                .to(trail, { opacity: 0, duration: 0.55 }, '>')
+                .to(rocket, { y: 0, scale: 1, duration: 0.45, ease: 'power2.inOut' }, '<')
+
+                // A partir daqui fica "no ar": halo pulsando e foguete flutuando
+                .add(() => {
+                    gsap.fromTo(halo,
+                        { scale: 1, opacity: 0.8 },
+                        { scale: 2.2, opacity: 0, duration: 2.2, repeat: -1, ease: 'power1.out' }
+                    );
+                    gsap.to(rocket, { y: -5, duration: 1.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+                });
         }
 
         // --- Pricing Calculator Logic ---
@@ -3260,7 +3697,9 @@
             ['assinantes', 'Assinantes'],
             ['faixa', 'Faixa de preço'],
             ['erp', 'Sistema / ERP'],
-            ['observacoes', 'Observações']
+            ['observacoes', 'Observações'],
+            ['vendedor', 'Captado por'],
+            ['agenteStatus', 'WhatsApp (agente)']
         ];
 
         // Confere logo na abertura se o navegador deixa gravar dados neste endereço.
@@ -3352,6 +3791,7 @@
 
         function openLeadForm(panel) {
             if (!leadOverlay) return;
+            acordarServidor();  // enquanto o vendedor digita, o servidor acorda
             leadOverlay.classList.add('active');
             switchLeadPanel(panel || 'panel-form');
             if (!panel || panel === 'panel-form') {
@@ -3417,39 +3857,578 @@
                 ' ' + p(date.getHours()) + ':' + p(date.getMinutes());
         }
 
-        if (leadForm) {
-            leadForm.addEventListener('submit', (e) => {
-                e.preventDefault();
+        // ====================================================================
+        // CADASTRO EM 2 ETAPAS + ENVIO AO AGENTE (WhatsApp)
+        //
+        // Etapa 1 (responsável, nome, celular, e-mail, autorização): ao confirmar, o
+        // lead é salvo AQUI primeiro (localStorage) e só depois enviado ao agente, que
+        // chama o lead no WhatsApp dizendo quem pediu. Etapa 2 (provedor, cidade,
+        // assinantes...) completa o cadastro e pode ser feita depois, pela lista.
+        //
+        // REGRA DE OURO: o envio nunca bloqueia nem perde um lead. Sem internet, o lead
+        // fica "na fila" e sai sozinho quando a conexão voltar. O servidor é idempotente
+        // por `clientId`, então reenviar é sempre seguro.
+        // ====================================================================
+        const AGENTE_API_PADRAO = 'https://dashboard-com-api.onrender.com/eventos';
+        const API_OVERRIDE_KEY = 'maquina_isp_api_teste';
 
-                const get = id => (document.getElementById(id)?.value || '').trim();
+        // Endereço do agente. Por padrão é sempre o servidor real. Para TESTE, abrir a página
+        // com `?api=http://localhost:8000/eventos` aponta para um servidor local, e SÓ enquanto
+        // a URL tiver esse parâmetro: nada é guardado, então abrir a página normalmente nunca
+        // fica preso num servidor de teste. Só aceita localhost/127.0.0.1: um link com `?api=`
+        // de outro endereço poderia desviar os dados dos leads (nome e telefone) para um terceiro.
+        const AGENTE_API = (function () {
+            const loopback = /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/eventos$/;
+            // Versões anteriores guardavam o desvio no navegador; isso nunca mais vale.
+            try { localStorage.removeItem(API_OVERRIDE_KEY); } catch (e) { /* sem armazenamento */ }
+            try {
+                const pedido = new URLSearchParams(location.search).get('api');
+                if (pedido && loopback.test(pedido)) return pedido;
+            } catch (e) { /* usa o padrão */ }
+            return AGENTE_API_PADRAO;
+        })();
+        const EVENTO_CFG_KEY = 'maquina_isp_evento_cfg';
+        const VENDEDOR_KEY = 'maquina_isp_vendedor';
+        // Usada só até o servidor responder a primeira vez (depois vale a lista dele).
+        const VENDEDORES_PADRAO = ['Wesley', 'Miriã', 'Daniel', 'Eliverto', 'César'];
+        const ENVIO_TIMEOUT_MS = 45000;   // servidor gratuito pode levar ~50s para acordar
+        const ENVIO_MAX_FALHAS = 4;       // recusas do WhatsApp: tenta algumas vezes e passa pro botão manual
 
-                // Validação dos obrigatórios
-                let firstInvalid = null;
-                [['lead-nome', true], ['lead-provedor', true], ['lead-whatsapp', true]].forEach(([id]) => {
-                    const el = document.getElementById(id);
-                    const field = el?.closest('[data-field]');
-                    const ok = !!get(id);
-                    field?.classList.toggle('invalid', !ok);
-                    if (!ok && !firstInvalid) firstInvalid = el;
+        const ENVIO_ROTULOS = {
+            fila: ['Na fila', 'warn'],
+            enviando: ['Enviando...', 'warn'],
+            enviado: ['WhatsApp enviado', 'ok'],
+            sem_template: ['Salvo · envio não liberado', 'warn'],
+            falhou: ['Falhou', 'err'],
+            incerto: ['Confira no WhatsApp', 'warn'],
+            duplicado: ['Número já chamado', 'mute'],
+            recusado: ['Recusado', 'err']
+        };
+
+        const leadForm2 = document.getElementById('lead-form-2');
+        let filaProcessando = false;
+        let leadEmEtapa2 = null;      // id do lead cuja etapa 2 está na tela
+        let cadastroPendente = null;  // dados da etapa 1 aguardando a confirmação do número
+
+        // ---------- utilidades ----------
+        function lerJson(chave) {
+            try { return JSON.parse(localStorage.getItem(chave)); } catch (e) { return null; }
+        }
+
+        function novoClientId() {
+            // Chave de idempotência no servidor: tem que ser única entre aparelhos.
+            try {
+                if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+            } catch (e) { /* cai no plano B */ }
+            return 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+        }
+
+        function telefoneValido(valor) {
+            const d = (valor || '').replace(/\D/g, '');
+            // O agente precisa de WhatsApp: celular com DDD (11 dígitos, começando em 9).
+            return d.length === 11 && d[2] === '9' && Number(d.slice(0, 2)) >= 11;
+        }
+
+        function emailValido(valor) {
+            return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(valor);
+        }
+
+        function primeiroNome(nome) {
+            return (nome || '').trim().split(/\s+/)[0] || '';
+        }
+
+        function atualizarLead(id, fn) {
+            const leads = loadLeads();
+            const lead = leads.find(l => l.id === id);
+            if (!lead) return null;
+            fn(lead);
+            persistLeads(leads);
+            return lead;
+        }
+
+        function backoff(tentativas) {
+            return Math.min(60000, 5000 * Math.pow(2, Math.max(0, tentativas - 1)));
+        }
+
+        function detalheDoErro(dados) {
+            if (!dados || !dados.detail) return '';
+            if (typeof dados.detail === 'string') return dados.detail;
+            if (Array.isArray(dados.detail) && dados.detail[0]) return dados.detail[0].msg || '';
+            return '';
+        }
+
+        // ---------- configuração vinda do servidor (lista de responsáveis) ----------
+        function vendedoresDisponiveis() {
+            const cfg = lerJson(EVENTO_CFG_KEY);
+            return (cfg && Array.isArray(cfg.vendedores) && cfg.vendedores.length) ? cfg.vendedores : VENDEDORES_PADRAO;
+        }
+
+        function vendedorSalvo() {
+            try { return localStorage.getItem(VENDEDOR_KEY) || ''; } catch (e) { return ''; }
+        }
+
+        function popularVendedores() {
+            const sel = document.getElementById('lead-vendedor');
+            if (!sel) return;
+            const lista = vendedoresDisponiveis();
+            const atual = sel.value || vendedorSalvo();
+            sel.innerHTML = '<option value="">Selecione...</option>' +
+                lista.map(v => '<option>' + escapeHtml(v) + '</option>').join('');
+            if (atual && lista.indexOf(atual) !== -1) sel.value = atual;
+        }
+
+        function pintarAvisoEvento() {
+            const el = document.getElementById('evento-aviso');
+            if (!el) return;
+            const cfg = lerJson(EVENTO_CFG_KEY);
+            const fechado = cfg && cfg.aberto === false;
+            const emTeste = AGENTE_API !== AGENTE_API_PADRAO;
+            el.classList.toggle('visible', !!(fechado || emTeste));
+            // Em modo de teste o aviso é incômodo de propósito: esquecer isto ligado no
+            // evento mandaria os leads para um servidor que só existe no seu computador.
+            el.textContent = emTeste
+                ? 'MODO TESTE: enviando para ' + AGENTE_API + '. Para usar o servidor real, abra a página sem o ?api= na URL.'
+                : (fechado ? 'Fora do período do evento: os leads ficam só neste computador e o agente não será acionado.' : '');
+        }
+
+        async function chamarAgente(metodo, caminho, corpo, limiteMs) {
+            const ctl = new AbortController();
+            const timer = setTimeout(() => ctl.abort(), limiteMs || ENVIO_TIMEOUT_MS);
+            try {
+                const resp = await fetch(AGENTE_API + caminho, {
+                    method: metodo,
+                    headers: corpo ? { 'Content-Type': 'application/json' } : undefined,
+                    body: corpo ? JSON.stringify(corpo) : undefined,
+                    signal: ctl.signal
                 });
+                let dados = null;
+                try { dados = await resp.json(); } catch (e) { /* corpo vazio */ }
+                return { ok: resp.ok, status: resp.status, dados: dados };
+            } finally {
+                clearTimeout(timer);
+            }
+        }
 
-                if (firstInvalid) {
-                    showToast('Preencha nome, provedor e WhatsApp.', 'warn');
-                    firstInvalid.focus();
+        async function carregarConfigEvento(limiteMs) {
+            try {
+                const r = await chamarAgente('GET', '/config', null, limiteMs || 10000);
+                if (r.ok && r.dados) {
+                    try { localStorage.setItem(EVENTO_CFG_KEY, JSON.stringify(r.dados)); } catch (e) { /* segue */ }
+                    popularVendedores();
+                    pintarAvisoEvento();
+                }
+            } catch (e) { /* offline: segue com a lista em cache ou a padrão */ }
+        }
+
+        // Acorda o servidor. O servidor gratuito dorme após ~15 min sem uso e a primeira
+        // chamada depois disso leva ~76 s. Chamar isto quando o formulário ABRE faz o servidor
+        // acordar enquanto o vendedor ainda está digitando, em vez de o primeiro lead pagar essa
+        // espera. É um GET leve (a lista de responsáveis) e não cria nada. No máximo 1x por minuto.
+        let ultimoAcordar = 0;
+        function acordarServidor() {
+            const agora = Date.now();
+            if (agora - ultimoAcordar < 60000) return;
+            ultimoAcordar = agora;
+            // Limite longo: abortar não cancelaria o despertar, mas assim a lista chega quando ele acorda.
+            carregarConfigEvento(90000);
+        }
+
+        // ---------- fila de envio ----------
+        function corpoDoLead(l) {
+            return {
+                client_id: l.clientId,
+                vendedor: l.vendedor,
+                nome: l.nome,
+                celular: l.whatsapp,
+                email: l.email || null,
+                consentimento: true,
+                capturado_em: l.capturadoEmISO,
+                provedor: l.provedor || null,
+                cidade: l.cidade || null,
+                uf: l.uf || null,
+                assinantes: l.assinantes ? Number(l.assinantes) : null,
+                erp: l.erp || null,
+                observacoes: l.observacoes || null
+            };
+        }
+
+        function corpoEtapa2(l) {
+            const c = corpoDoLead(l);
+            return {
+                provedor: c.provedor, cidade: c.cidade, uf: c.uf,
+                assinantes: c.assinantes, erp: c.erp, observacoes: c.observacoes
+            };
+        }
+
+        // 'post' = ainda precisa chegar ao agente; 'patch' = a etapa 2 mudou depois do envio.
+        function proximaAcao(l) {
+            const e = l.envio;
+            if (!e) return null;  // lead antigo (só local): nunca foi para o agente
+            const agora = Date.now();
+            if (e.status === 'fila') return agora >= (e.proxima || 0) ? 'post' : null;
+            if (e.servidorConhece && (l.etapa2Rev || 0) > (e.etapa2Enviada || 0) && agora >= (e.proximaPatch || 0)) return 'patch';
+            return null;
+        }
+
+        function aplicarRespostaPost(id, r, rev) {
+            atualizarLead(id, l => {
+                const e = l.envio;
+                const dados = r.dados || {};
+                e.tentativas = (e.tentativas || 0) + 1;
+
+                if (r.ok) {
+                    const s = dados.status;
+                    if (!s || s === 'recebido') {  // o servidor ainda não concluiu (ex: CRM fora do ar)
+                        e.status = 'fila';
+                        e.proxima = Date.now() + backoff(e.tentativas);
+                        e.msg = 'O servidor ainda não concluiu';
+                        return;
+                    }
+                    e.servidorConhece = true;
+                    e.card = !!dados.card;
+                    e.etapa2Enviada = rev;
+                    e.msg = dados.erro || '';
+                    if (s === 'falhou') {  // o WhatsApp recusou: tenta de novo algumas vezes
+                        e.falhas = (e.falhas || 0) + 1;
+                        if (e.falhas < ENVIO_MAX_FALHAS) {
+                            e.status = 'fila';
+                            e.proxima = Date.now() + 30000 * e.falhas;
+                        } else {
+                            e.status = 'falhou';
+                        }
+                        return;
+                    }
+                    e.status = s;  // enviado | sem_template | incerto | duplicado
                     return;
                 }
 
+                if (r.status === 429 || r.status >= 500) {
+                    e.status = 'fila';
+                    e.proxima = Date.now() + backoff(e.tentativas);
+                    e.msg = 'Servidor ocupado';
+                    return;
+                }
+                e.status = 'recusado';  // 403 (fora do período), 422 (dado inválido)...
+                e.msg = detalheDoErro(dados) || ('Erro ' + r.status);
+            });
+        }
+
+        async function enviarPost(lead, caminho) {
+            const rev = lead.etapa2Rev || 0;
+            atualizarLead(lead.id, l => { l.envio.status = 'enviando'; });
+            renderizarEnvio();
+            try {
+                const r = await chamarAgente('POST', caminho || '/leads', caminho ? null : corpoDoLead(lead));
+                aplicarRespostaPost(lead.id, r, rev);
+            } catch (err) {  // sem rede, timeout ou bloqueio: fica na fila
+                atualizarLead(lead.id, l => {
+                    l.envio.status = 'fila';
+                    l.envio.tentativas = (l.envio.tentativas || 0) + 1;
+                    l.envio.proxima = Date.now() + backoff(l.envio.tentativas);
+                    l.envio.msg = 'Sem conexão com o agente';
+                });
+            }
+        }
+
+        async function enviarPatch(lead) {
+            const rev = lead.etapa2Rev || 0;
+            try {
+                const r = await chamarAgente('PATCH', '/leads/' + encodeURIComponent(lead.clientId), corpoEtapa2(lead));
+                atualizarLead(lead.id, l => {
+                    if (r.ok) {
+                        l.envio.etapa2Enviada = rev;
+                        l.envio.proximaPatch = 0;
+                    } else if (r.status === 404) {  // o servidor não conhece o lead: manda tudo de novo
+                        l.envio.servidorConhece = false;
+                        l.envio.status = 'fila';
+                        l.envio.proxima = 0;
+                    } else if (r.status === 429 || r.status >= 500) {
+                        l.envio.proximaPatch = Date.now() + backoff(2);
+                    } else {  // dado recusado: não insiste (continua na planilha)
+                        l.envio.etapa2Enviada = rev;
+                        l.envio.msg = detalheDoErro(r.dados) || ('Erro ' + r.status);
+                    }
+                });
+            } catch (err) {
+                atualizarLead(lead.id, l => { l.envio.proximaPatch = Date.now() + 8000; });
+            }
+        }
+
+        async function processarFila() {
+            if (filaProcessando) return;
+            if (navigator.onLine === false) { renderizarEnvio(); return; }
+            filaProcessando = true;
+            try {
+                const ids = loadLeads().filter(l => proximaAcao(l)).map(l => l.id);
+                for (const id of ids) {
+                    const lead = loadLeads().find(l => l.id === id);
+                    const acao = lead && proximaAcao(lead);
+                    if (acao === 'post') await enviarPost(lead);
+                    else if (acao === 'patch') await enviarPatch(lead);
+                }
+            } finally {
+                filaProcessando = false;
+                renderizarEnvio();
+            }
+        }
+
+        // Reenvio manual. `incerto` = o envio deu timeout e a mensagem PODE ter chegado:
+        // o servidor não reenvia sozinho, só quando o vendedor confirma que não chegou.
+        async function reenviarLead(id) {
+            const lead = loadLeads().find(l => l.id === id);
+            if (!lead || !lead.envio) return;
+
+            if (lead.envio.status === 'incerto') {
+                const ok = confirm('Não deu para confirmar se a mensagem chegou para ' + lead.nome + '.\n\n' +
+                    'Confira no WhatsApp dele. Se ela JÁ chegou, reenviar duplica a mensagem.\n\n' +
+                    'A mensagem NÃO chegou e quer reenviar?');
+                if (!ok) return;
+                await enviarPost(lead, '/leads/' + encodeURIComponent(lead.clientId) + '/reenviar');
+                renderizarEnvio();
+                return;
+            }
+            atualizarLead(id, l => {
+                l.envio.status = 'fila';
+                l.envio.falhas = 0;
+                l.envio.proxima = 0;
+            });
+            renderizarEnvio();
+            processarFila();
+        }
+
+        function reenviarPendentes() {
+            let n = 0;
+            const leads = loadLeads();
+            leads.forEach(l => {
+                if (l.envio && (l.envio.status === 'falhou' || l.envio.status === 'sem_template')) {
+                    l.envio.status = 'fila';
+                    l.envio.falhas = 0;
+                    l.envio.proxima = 0;
+                    n++;
+                }
+            });
+            if (!n) { showToast('Nenhum lead pendente de envio.', 'warn'); return; }
+            persistLeads(leads);
+            showToast(n + ' lead(s) voltaram para a fila.');
+            renderizarEnvio();
+            processarFila();
+        }
+
+        // ---------- apresentação do estado de envio ----------
+        function rotuloEnvio(l) {
+            if (!l.envio) return 'Somente local';
+            return (ENVIO_ROTULOS[l.envio.status] || [l.envio.status])[0];
+        }
+
+        function pillEnvio(l) {
+            if (!l.envio) return '<span class="envio-pill mute">Somente local</span>';
+            const r = ENVIO_ROTULOS[l.envio.status] || [l.envio.status, 'mute'];
+            return '<span class="envio-pill ' + r[1] + '">' + escapeHtml(r[0]) + '</span>';
+        }
+
+        function textoBanner(l) {
+            const e = l.envio || {};
+            const nome = primeiroNome(l.nome);
+            switch (e.status) {
+                case 'enviado':
+                    return ['ok', 'ph-check-circle', 'WhatsApp enviado. O agente já chamou ' + nome + ' e avisou que foi o ' + l.vendedor + ' quem pediu.'];
+                case 'sem_template':
+                    return ['warn', 'ph-clock', 'Lead salvo. O envio do WhatsApp ainda não foi liberado; ele sai assim que for.'];
+                case 'incerto':
+                    return ['warn', 'ph-warning-circle', 'Não deu para confirmar o envio. Confira no WhatsApp de ' + nome + ' antes de reenviar (aba Leads capturados).'];
+                case 'duplicado':
+                    return ['mute', 'ph-warning-circle', 'Esse número já foi chamado neste evento. Não vou mandar de novo.'];
+                case 'falhou':
+                case 'recusado':
+                    return ['err', 'ph-warning-circle', 'Não foi possível chamar ' + nome + (e.msg ? ': ' + e.msg : '.') + ' O lead continua salvo.'];
+                default:
+                    if (navigator.onLine === false) {
+                        return ['warn', 'ph-wifi-slash', 'Sem internet: o lead está salvo e o agente chama ' + nome + ' assim que a conexão voltar.'];
+                    }
+                    if ((e.tentativas || 0) > 0 && e.msg) {
+                        // Já tentou e não conseguiu: dizer "chamando" aqui seria enganoso.
+                        return ['warn', 'ph-wifi-slash', 'Ainda não consegui chamar ' + nome + ': ' + e.msg.toLowerCase() + '. O lead está salvo e eu continuo tentando.'];
+                    }
+                    return ['warn', 'ph-paper-plane-tilt', 'Chamando ' + nome + ' no WhatsApp...'];
+            }
+        }
+
+        function pintarBanner() {
+            const el = document.getElementById('lead-send-status');
+            if (!el) return;
+            const lead = leadEmEtapa2 ? loadLeads().find(l => l.id === leadEmEtapa2) : null;
+            if (!lead || !lead.envio) { el.className = 'lead-send-banner'; el.innerHTML = ''; return; }
+            const t = textoBanner(lead);
+            el.className = 'lead-send-banner visible ' + t[0];
+            el.innerHTML = '<i class="ph ' + t[1] + '"></i><span>' + escapeHtml(t[2]) + '</span>';
+        }
+
+        function renderizarEnvio() {
+            refreshLeadCount();
+            pintarBanner();
+            if (document.getElementById('panel-list')?.classList.contains('active')) renderLeadList();
+        }
+
+        // ---------- navegação entre as etapas ----------
+        function mostrarEtapa(v) {  // 1 | 'confirmar' | 2
+            document.getElementById('lead-form')?.classList.toggle('active', v === 1);
+            document.getElementById('lead-confirm')?.classList.toggle('active', v === 'confirmar');
+            document.getElementById('lead-form-2')?.classList.toggle('active', v === 2);
+            const d1 = document.getElementById('dot-1');
+            const d2 = document.getElementById('dot-2');
+            d1?.classList.toggle('active', v !== 2);
+            d1?.classList.toggle('done', v === 2);
+            d2?.classList.toggle('active', v === 2);
+        }
+
+        function restaurarVendedor() {
+            const sel = document.getElementById('lead-vendedor');
+            if (sel) sel.value = vendedorSalvo();
+        }
+
+        function voltarParaNovoLead() {
+            leadEmEtapa2 = null;
+            cadastroPendente = null;
+            leadForm?.reset();
+            leadForm2?.reset();
+            document.getElementById('lead-send-status').className = 'lead-send-banner';
+            mostrarEtapa(1);
+            refreshLeadCount();
+            setTimeout(() => document.getElementById('lead-nome')?.focus(), 60);
+        }
+
+        function atualizarFaixa() {
+            const hint = document.getElementById('lead-faixa-hint');
+            const val = parseInt(document.getElementById('lead-assinantes')?.value, 10);
+            if (hint) hint.textContent = (!isNaN(val) && val > 0) ? 'Faixa: ' + getPricingData(val).label : '';
+        }
+
+        function iniciarEtapa2(lead) {
+            leadEmEtapa2 = lead.id;
+            const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = (v === undefined || v === null) ? '' : v; };
+            set('lead-provedor', lead.provedor);
+            set('lead-cidade', lead.cidade);
+            set('lead-uf', lead.uf);
+            set('lead-assinantes', lead.assinantes);
+            set('lead-obs', lead.observacoes);
+
+            const erpFixos = ['IXC Soft', 'SGP', 'Hubsoft', 'Nenhum'];
+            const outro = !!lead.erp && erpFixos.indexOf(lead.erp) === -1;
+            set('lead-erp', outro ? 'Outro' : lead.erp);
+            set('lead-erp-outro', outro ? lead.erp : '');
+            const campoOutro = document.getElementById('field-erp-outro');
+            if (campoOutro) campoOutro.style.display = outro ? 'flex' : 'none';
+
+            atualizarFaixa();
+            const titulo = document.getElementById('etapa2-titulo');
+            if (titulo) titulo.textContent = 'Provedor de ' + primeiroNome(lead.nome);
+            mostrarEtapa(2);
+            pintarBanner();
+            setTimeout(() => document.getElementById('lead-provedor')?.focus(), 60);
+        }
+
+        document.getElementById('lead-vendedor')?.addEventListener('change', (e) => {
+            try { localStorage.setItem(VENDEDOR_KEY, e.target.value); } catch (err) { /* só não lembra da escolha */ }
+        });
+
+        // ---------- ETAPA 1: valida e pede a confirmação do número ----------
+        if (leadForm) {
+            leadForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const get = id => (document.getElementById(id)?.value || '').trim();
+
+                let primeiro = null;
+                const marcar = (id, ok) => {
+                    document.getElementById(id)?.closest('[data-field]')?.classList.toggle('invalid', !ok);
+                    if (!ok && !primeiro) primeiro = document.getElementById(id);
+                };
+                marcar('lead-vendedor', !!get('lead-vendedor'));
+                marcar('lead-nome', !!get('lead-nome'));
+                marcar('lead-whatsapp', telefoneValido(get('lead-whatsapp')));
+                marcar('lead-email', !get('lead-email') || emailValido(get('lead-email')));
+                const consent = document.getElementById('lead-consent');
+                document.getElementById('lead-consent-box')?.classList.toggle('invalid', !consent.checked);
+                if (!consent.checked && !primeiro) primeiro = consent;
+
+                if (primeiro) {
+                    let msg = 'Preencha o responsável, o nome e o celular.';
+                    if (get('lead-whatsapp') && !telefoneValido(get('lead-whatsapp'))) msg = 'Informe o celular com DDD: (00) 90000-0000.';
+                    else if (get('lead-vendedor') && get('lead-nome') && get('lead-whatsapp') && !consent.checked) msg = 'Marque a autorização de contato por WhatsApp.';
+                    else if (get('lead-email') && !emailValido(get('lead-email'))) msg = 'Confira o e-mail.';
+                    showToast(msg, 'warn');
+                    primeiro.focus();
+                    return;
+                }
+
+                cadastroPendente = {
+                    vendedor: get('lead-vendedor'), nome: get('lead-nome'),
+                    whatsapp: get('lead-whatsapp'), email: get('lead-email')
+                };
+                document.getElementById('confirm-fone').textContent = cadastroPendente.whatsapp;
+                document.getElementById('confirm-nome').textContent = cadastroPendente.nome;
+                document.getElementById('confirm-vendedor').textContent = cadastroPendente.vendedor;
+                mostrarEtapa('confirmar');
+                document.getElementById('btn-confirmar-envio')?.focus();
+            });
+
+            leadForm.addEventListener('reset', () => {
+                leadForm.querySelectorAll('[data-field]').forEach(f => f.classList.remove('invalid'));
+                document.getElementById('lead-consent-box')?.classList.remove('invalid');
+                setTimeout(restaurarVendedor, 0);  // o responsável continua o mesmo entre os leads
+            });
+
+            // Ctrl+Enter avança de qualquer campo
+            leadForm.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+                    e.preventDefault();
+                    leadForm.requestSubmit();
+                }
+            });
+        }
+
+        document.getElementById('btn-corrigir')?.addEventListener('click', () => {
+            mostrarEtapa(1);
+            setTimeout(() => document.getElementById('lead-whatsapp')?.focus(), 60);
+        });
+
+        // ---------- confirmou o número: salva aqui e entra na fila do agente ----------
+        document.getElementById('btn-confirmar-envio')?.addEventListener('click', () => {
+            if (!cadastroPendente) { mostrarEtapa(1); return; }
+            const now = new Date();
+            const lead = {
+                id: 'lead_' + now.getTime(),
+                clientId: novoClientId(),
+                capturadoEm: formatTimestamp(now),
+                capturadoEmISO: now.toISOString(),
+                nome: cadastroPendente.nome,
+                whatsapp: cadastroPendente.whatsapp,
+                email: cadastroPendente.email,
+                vendedor: cadastroPendente.vendedor,
+                consentimento: true,
+                provedor: '', cidade: '', uf: '', assinantes: '', faixa: '', erp: '', observacoes: '',
+                etapa2Rev: 0,
+                envio: { status: 'fila', tentativas: 0, falhas: 0, proxima: 0, etapa2Enviada: 0, servidorConhece: false, msg: '' }
+            };
+
+            const leads = loadLeads();
+            leads.push(lead);
+            if (!persistLeads(leads)) return;  // o toast de erro já foi mostrado
+
+            cadastroPendente = null;
+            refreshLeadCount();
+            iniciarEtapa2(lead);
+            processarFila();
+        });
+
+        // ---------- ETAPA 2: o resto do cadastro ----------
+        if (leadForm2) {
+            leadForm2.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (!leadEmEtapa2) { voltarParaNovoLead(); return; }
+                const get = id => (document.getElementById(id)?.value || '').trim();
                 const subs = parseInt(get('lead-assinantes'), 10);
                 const erpSel = get('lead-erp');
-                const now = new Date();
-
-                const lead = {
-                    id: 'lead_' + now.getTime(),
-                    capturadoEm: formatTimestamp(now),
-                    capturadoEmISO: now.toISOString(),
-                    nome: get('lead-nome'),
-                    whatsapp: get('lead-whatsapp'),
-                    email: get('lead-email'),
+                const dados = {
                     provedor: get('lead-provedor'),
                     cidade: get('lead-cidade'),
                     uf: get('lead-uf'),
@@ -3459,37 +4438,84 @@
                     observacoes: get('lead-obs')
                 };
 
-                const leads = loadLeads();
-                leads.push(lead);
-                if (!persistLeads(leads)) return;
-
-                leadForm.reset();
-                document.getElementById('field-erp-outro').style.display = 'none';
-                document.getElementById('lead-faixa-hint').textContent = '';
-                refreshLeadCount();
-                showToast('Lead de ' + lead.nome + ' salvo. Total: ' + leads.length + '.');
-                document.getElementById('lead-nome')?.focus();
+                const lead = atualizarLead(leadEmEtapa2, l => {
+                    const mudou = Object.keys(dados).some(k => String(l[k] === undefined ? '' : l[k]) !== String(dados[k]));
+                    Object.assign(l, dados);
+                    if (mudou) l.etapa2Rev = (l.etapa2Rev || 0) + 1;
+                });
+                showToast('Dados de ' + primeiroNome(lead ? lead.nome : '') + ' salvos.');
+                voltarParaNovoLead();
+                processarFila();
             });
 
-            leadForm.addEventListener('reset', () => {
-                leadForm.querySelectorAll('[data-field]').forEach(f => f.classList.remove('invalid'));
-                document.getElementById('field-erp-outro').style.display = 'none';
-                document.getElementById('lead-faixa-hint').textContent = '';
+            leadForm2.addEventListener('reset', () => {
+                const campo = document.getElementById('field-erp-outro');
+                if (campo) campo.style.display = 'none';
+                const hint = document.getElementById('lead-faixa-hint');
+                if (hint) hint.textContent = '';
             });
 
-            // Ctrl+Enter salva de qualquer campo
-            leadForm.addEventListener('keydown', (e) => {
+            leadForm2.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
                     e.preventDefault();
-                    leadForm.requestSubmit();
+                    leadForm2.requestSubmit();
                 }
             });
         }
+
+        document.getElementById('btn-pular-etapa2')?.addEventListener('click', () => {
+            const lead = leadEmEtapa2 ? loadLeads().find(l => l.id === leadEmEtapa2) : null;
+            if (lead) showToast('Lead de ' + primeiroNome(lead.nome) + ' salvo. Total: ' + loadLeads().length + '.');
+            voltarParaNovoLead();
+        });
+
+        document.getElementById('btn-reenviar-pendentes')?.addEventListener('click', reenviarPendentes);
+
+        // Tira o vermelho do campo assim que ele é corrigido (e não só no próximo envio).
+        document.querySelectorAll('#panel-form [data-field] input, #panel-form [data-field] select, #panel-form [data-field] textarea').forEach(el => {
+            const limpar = () => el.closest('[data-field]')?.classList.remove('invalid');
+            el.addEventListener('input', limpar);
+            el.addEventListener('change', limpar);
+        });
+        document.getElementById('lead-consent')?.addEventListener('change', (e) => {
+            if (e.target.checked) document.getElementById('lead-consent-box')?.classList.remove('invalid');
+        });
+
+        // ---------- partida ----------
+        // Uma aba fechada no meio de um envio deixaria o lead preso em "enviando".
+        (function normalizarFila() {
+            const leads = loadLeads();
+            let mudou = false;
+            leads.forEach(l => {
+                if (l.envio && l.envio.status === 'enviando') { l.envio.status = 'fila'; mudou = true; }
+            });
+            if (mudou) persistLeads(leads);
+        })();
+
+        popularVendedores();
+        pintarAvisoEvento();
+        acordarServidor();
+        processarFila();
+        setInterval(processarFila, 10000);  // sem nada pendente o ciclo não faz requisição alguma
+        window.addEventListener('online', () => {
+            // A conexão voltou: não há por que respeitar o recuo de uma falha que já passou.
+            const leads = loadLeads();
+            leads.forEach(l => { if (l.envio) { l.envio.proxima = 0; l.envio.proximaPatch = 0; } });
+            persistLeads(leads);
+            carregarConfigEvento();
+            processarFila();
+        });
+        window.addEventListener('offline', renderizarEnvio);
 
         function escapeHtml(str) {
             return String(str == null ? '' : str)
                 .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
                 .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+
+        // Copia do lead com os campos derivados que a planilha mostra (status do agente).
+        function leadParaPlanilha(l) {
+            return Object.assign({}, l, { agenteStatus: rotuloEnvio(l) });
         }
 
         function renderLeadList() {
@@ -3508,31 +4534,58 @@
             const rows = leads.map((l, i) => {
                 const local = [l.cidade, l.uf].filter(Boolean).join(' / ');
                 const assinantes = l.assinantes ? Number(l.assinantes).toLocaleString('pt-BR') : '—';
+                const st = l.envio ? l.envio.status : '';
+                const mostraMsg = l.envio && l.envio.msg && ['falhou', 'recusado', 'incerto', 'duplicado'].indexOf(st) !== -1;
+                const podeReenviar = ['falhou', 'sem_template', 'incerto'].indexOf(st) !== -1;
+
                 return '<tr>' +
                     '<td class="td-num">' + String(i + 1).padStart(2, '0') + '</td>' +
                     '<td><span class="td-name">' + escapeHtml(l.nome) + '</span>' +
                     (l.email ? '<span class="td-sub">' + escapeHtml(l.email) + '</span>' : '') + '</td>' +
-                    '<td>' + escapeHtml(l.provedor) +
+                    '<td>' + (l.provedor ? escapeHtml(l.provedor) : '<span class="td-sub" style="margin:0">—</span>') +
                     (local ? '<span class="td-sub">' + escapeHtml(local) + '</span>' : '') + '</td>' +
                     '<td>' + escapeHtml(l.whatsapp) + '</td>' +
                     '<td>' + assinantes +
                     (l.erp ? '<span class="td-sub">' + escapeHtml(l.erp) + '</span>' : '') + '</td>' +
+                    '<td>' + pillEnvio(l) +
+                    (l.vendedor ? '<span class="td-sub">Captado por ' + escapeHtml(l.vendedor) + '</span>' : '') +
+                    (mostraMsg ? '<span class="td-sub">' + escapeHtml(String(l.envio.msg).slice(0, 90)) + '</span>' : '') + '</td>' +
                     '<td class="td-num">' + escapeHtml(l.capturadoEm) + '</td>' +
-                    '<td><button class="lead-row-del" data-id="' + escapeHtml(l.id) + '" title="Remover este lead">' +
-                    '<i class="ph ph-trash"></i></button></td>' +
+                    '<td><div class="lead-row-actions">' +
+                    '<button class="lead-row-btn" data-act="edit" data-id="' + escapeHtml(l.id) + '" title="Completar os dados do provedor">' +
+                    '<i class="ph ph-pencil-simple"></i></button>' +
+                    (podeReenviar
+                        ? '<button class="lead-row-btn" data-act="resend" data-id="' + escapeHtml(l.id) + '" title="Reenviar a mensagem do agente">' +
+                          '<i class="ph ph-arrow-clockwise"></i></button>'
+                        : '') +
+                    '<button class="lead-row-del" data-act="del" data-id="' + escapeHtml(l.id) + '" title="Remover este lead">' +
+                    '<i class="ph ph-trash"></i></button>' +
+                    '</div></td>' +
                     '</tr>';
             }).join('');
 
             wrap.innerHTML = '<table class="lead-table"><thead><tr>' +
                 '<th>#</th><th>Contato</th><th>Provedor</th><th>WhatsApp</th>' +
-                '<th>Assinantes</th><th>Capturado</th><th></th>' +
+                '<th>Assinantes</th><th>Agente</th><th>Capturado</th><th></th>' +
                 '</tr></thead><tbody>' + rows + '</tbody></table>';
 
-            wrap.querySelectorAll('.lead-row-del').forEach(btn => {
+            wrap.querySelectorAll('[data-act]').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const id = btn.dataset.id;
                     const lead = loadLeads().find(l => l.id === id);
-                    if (!confirm('Remover o lead de ' + (lead ? lead.nome : 'contato') + '?')) return;
+                    if (!lead) return;
+
+                    if (btn.dataset.act === 'edit') {
+                        if (!lead.envio) { showToast('Este lead é antigo e não foi enviado ao agente.', 'warn'); }
+                        iniciarEtapa2(lead);
+                        switchLeadPanel('panel-form');
+                        return;
+                    }
+                    if (btn.dataset.act === 'resend') {
+                        reenviarLead(id);
+                        return;
+                    }
+                    if (!confirm('Remover o lead de ' + lead.nome + '?\n\nIsso apaga só a cópia deste computador; se o agente já foi acionado, o cadastro no CRM continua.')) return;
                     persistLeads(loadLeads().filter(l => l.id !== id));
                     renderLeadList();
                     refreshLeadCount();
@@ -3569,14 +4622,15 @@
 
             const rows = leads.map(l => {
                 const row = {};
-                LEAD_COLUMNS.forEach(([key, header]) => { row[header] = l[key] ?? ''; });
+                const d = leadParaPlanilha(l);
+                LEAD_COLUMNS.forEach(([key, header]) => { row[header] = d[key] ?? ''; });
                 return row;
             });
 
             const ws = XLSX.utils.json_to_sheet(rows, { header: LEAD_COLUMNS.map(c => c[1]) });
             ws['!cols'] = [
                 { wch: 17 }, { wch: 26 }, { wch: 18 }, { wch: 30 }, { wch: 26 },
-                { wch: 18 }, { wch: 5 }, { wch: 12 }, { wch: 28 }, { wch: 16 }, { wch: 50 }
+                { wch: 18 }, { wch: 5 }, { wch: 12 }, { wch: 28 }, { wch: 16 }, { wch: 50 }, { wch: 14 }, { wch: 24 }
             ];
             ws['!autofilter'] = { ref: XLSX.utils.encode_range({
                 s: { c: 0, r: 0 }, e: { c: LEAD_COLUMNS.length - 1, r: rows.length }
@@ -3596,7 +4650,7 @@
 
             const cell = v => '"' + String(v ?? '').replace(/"/g, '""') + '"';
             const lines = [LEAD_COLUMNS.map(c => cell(c[1])).join(';')];
-            leads.forEach(l => lines.push(LEAD_COLUMNS.map(c => cell(l[c[0]])).join(';')));
+            leads.forEach(l => { const d = leadParaPlanilha(l); lines.push(LEAD_COLUMNS.map(c => cell(d[c[0]])).join(';')); });
 
             // BOM + ; + CRLF para o Excel em pt-BR abrir com acentos e colunas corretas
             const blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8;' });
@@ -3639,7 +4693,8 @@
         window.addEventListener('beforeunload', (e) => {
             const leads = loadLeads();
             const exported = loadExportInfo();
-            if (leads.length - (exported ? exported.count : 0) > 0) {
+            const naFila = leads.filter(l => l.envio && l.envio.status === 'fila').length;
+            if (naFila > 0 || leads.length - (exported ? exported.count : 0) > 0) {
                 e.preventDefault();
                 e.returnValue = '';
                 return '';
