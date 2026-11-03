@@ -3105,6 +3105,14 @@
                                 <option>IXC Soft</option>
                                 <option>SGP</option>
                                 <option>Hubsoft</option>
+                                <option>MK-Auth</option>
+                                <option>MK-Solutions</option>
+                                <option>Voalle</option>
+                                <option>RBX ISP</option>
+                                <option>TopSApp</option>
+                                <option>Radius Net</option>
+                                <option>Receita Net</option>
+                                <option>ISPFY</option>
                                 <option>Outro</option>
                                 <option>Nenhum</option>
                             </select>
@@ -4313,7 +4321,7 @@
             set('lead-assinantes', lead.assinantes);
             set('lead-obs', lead.observacoes);
 
-            const erpFixos = ['IXC Soft', 'SGP', 'Hubsoft', 'Nenhum'];
+            const erpFixos = ['IXC Soft', 'SGP', 'Hubsoft', 'MK-Auth', 'MK-Solutions', 'Voalle', 'RBX ISP', 'TopSApp', 'Radius Net', 'Receita Net', 'ISPFY', 'Nenhum'];
             const outro = !!lead.erp && erpFixos.indexOf(lead.erp) === -1;
             set('lead-erp', outro ? 'Outro' : lead.erp);
             set('lead-erp-outro', outro ? lead.erp : '');
