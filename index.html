@@ -2739,8 +2739,9 @@
                         <div class="pricing-card-v2 title-reveal" style="transition-delay: 0.1s;">
                             <div class="border-beam" style="border-radius: 28px; opacity: 0.25;"></div>
                             <span class="pricing-label">Taxa de Implantação</span>
-                            <div class="pricing-value" id="calc-setup" style="color: white;">
-                                Sem Custo
+                            <div class="pricing-value" style="color: white;">
+                                <span class="old-price-v2" id="calc-setup-old" style="white-space: nowrap;">R$ 3.000</span>
+                                <span id="calc-setup" style="white-space: nowrap;">Sem Custo</span>
                             </div>
                             <p class="pricing-subtext" style="color: rgba(255,255,255,0.7); font-size: 14px;">Onboarding + Integração Completa</p>
                             <div style="margin-top: 25px; font-family: var(--font-syncopate); font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(0, 111, 255, 0.15); border: 1px solid rgba(0, 111, 255, 0.3); padding: 8px 20px; border-radius: 12px; display: inline-block;">
@@ -2761,7 +2762,7 @@
         <!-- =========================================================================
              SLIDE 45 DIAS — TESTE GRATUITO & SETUP POR NOSSA CONTA
              ========================================================================= -->
-        <section class="slide slide-dark" id="slide-teste-gratis" data-title="45 Dias de Teste">
+        <section class="slide slide-dark" id="slide-teste-gratis" data-title="45 Dias de Freemium">
             <div class="grid-bg grid-bg-dark"></div>
             <div class="noise-overlay"></div>
 
@@ -2782,11 +2783,11 @@
                     <div class="title-reveal" style="flex: 1; max-width: 560px; text-align: left;">
                         <h2 style="font-family: var(--font-virtual); font-size: 52px; line-height: 1.08; text-transform: uppercase; color: #ffffff; margin-bottom: 20px; text-shadow: 0 4px 25px rgba(0,0,0,0.95);">
                             <span style="color: #006fff; text-shadow: 0 0 35px rgba(0, 111, 255, 0.7);">45 dias</span><br>
-                            de teste
+                            de freemium
                         </h2>
 
                         <p style="font-family: var(--font-body); font-size: 18px; line-height: 1.55; color: rgba(255, 255, 255, 0.88); font-weight: 300; margin-bottom: 0; text-shadow: 0 2px 15px rgba(0,0,0,0.9);">
-                            Todo o setup e a implementação <strong style="color: #ffffff; font-weight: 600;">por conta da Develcode</strong>. Tenha na prática a experiência de uma operação automatizada no seu provedor. Sem custos de implementação.
+                            Todo o setup e a implementação <strong style="color: #ffffff; font-weight: 600;">por conta da Develcode</strong>. Tenha na prática a experiência de uma operação automatizada no seu provedor. Investimento a ser pago só após o 46º dia.
                         </p>
                     </div>
 
@@ -2835,14 +2836,14 @@
                         IMPLEMENTAÇÃO
                     </div>
 
-                    <!-- Descritivo de 45 Dias de Teste (da Implantação ao fim do Freemium) -->
+                    <!-- Descritivo dos 45 Dias (de implantação pagos pela Develcode) -->
                     <div style="position: absolute; left: 145px; top: 188px; width: 290px; text-align: center; z-index: 10;">
                         <div style="background: linear-gradient(135deg, #006fff, #004dc7); color: #ffffff; font-family: var(--font-syncopate), sans-serif; font-size: 13px; font-weight: 700; padding: 9px 20px; border-radius: 25px; box-shadow: 0 0 25px rgba(0, 111, 255, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.35); display: inline-flex; align-items: center; justify-content: center; gap: 8px; letter-spacing: 0.8px; border: 1px solid rgba(255, 255, 255, 0.25);">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                            45 DIAS DE TESTE
+                            45 DIAS
                         </div>
                         <div style="font-family: var(--font-body); font-size: 12px; font-weight: 600; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.8px; margin-top: 6px; text-shadow: 0 2px 10px rgba(0,0,0,0.95);">
-                            Da implantação ao fim do freemium
+                            de implantação pagos pela Develcode
                         </div>
                     </div>
 
@@ -3632,6 +3633,17 @@
             { max: Infinity, sem: "Sob Consulta", feira: "Sob Consulta", imp: "Sob Consulta", label: "Acima de 140.000 assinantes" }
         ];
 
+        // Valor "de" do setup (ancora de urgência, exibido cortado ao lado do valor real):
+        // faixas pagas mostram 50% a mais; faixas sem custo mostram um valor fixo.
+        const SETUP_ACRESCIMO_DE = 1.5;
+        const SETUP_GRATIS_DE = 3000;
+
+        function getSetupDe(data) {
+            if (typeof data.imp === 'number') return Math.round(data.imp * SETUP_ACRESCIMO_DE);
+            if (data.imp === "Sem Custo") return SETUP_GRATIS_DE;
+            return "";
+        }
+
         function getPricingData(subs) {
             const val = parseInt(subs, 10);
             if (isNaN(val) || val <= 0) return PRICING_TIERS[0];
@@ -3645,12 +3657,12 @@
 
             const formatBRL = (num) => typeof num === 'number' ? num.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }) : num;
 
-            const targets = ['calc-old-price', 'calc-monthly', 'calc-setup'];
+            const targets = ['calc-old-price', 'calc-monthly', 'calc-setup', 'calc-setup-old'];
             targets.forEach(id => {
                 const el = document.getElementById(id);
                 if (!el) return;
                 if (typeof data.feira === 'string') {
-                    if (id === 'calc-old-price') el.textContent = "";
+                    if (id === 'calc-old-price' || id === 'calc-setup-old') el.textContent = "";
                     else el.textContent = data.feira;
                 }
             });
@@ -3674,6 +3686,7 @@
                 animateTarget('calc-old-price', data.sem);
                 animateTarget('calc-monthly', data.feira);
                 animateTarget('calc-setup', data.imp);
+                animateTarget('calc-setup-old', getSetupDe(data));
             }
         }
 
